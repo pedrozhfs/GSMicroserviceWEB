@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Global Solution Microservice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </head>
+  <body>
+	<div class="container"><br>
+		
+	<h2 class="text-center mb-5">Global Solution Microservice</h2>
+	
+	<a th:href="@{/saveVeiculoPage}" class="btn btn-primary btn-small mb-3">Adicionar Veículo</a>
+	<a th:href="@{/saveRegionalPage}" class="btn btn-primary btn-small mb-3">Adicionar Regional</a>
+	<a th:href="@{/saveAmbientePage}" class="btn btn-primary btn-small mb-3">Adicionar Ambiente</a>
+		<table class="table">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">ID</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Placa</th>
+      <th scope="col">Quilometragem</th>
+      <th scope="col">Ações</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="veiculo: ${veiculolista}">
+      <th th:text="${veiculo.id}" scope="row"></th>
+      <td th:text="${veiculo.marca}"></td>
+      <td th:text="${veiculo.modelo}"></td>
+      <td th:text="${veiculo.placa}"></td>
+      <td th:text="${veiculo.quilometragem}"></td>
+      <td> 
+      	<a th:href="@{/updateVeiculoPage/{id}(id=${veiculo.id})}" class="btn btn-primary">Atualizar Veículo</a>
+      	<a th:href="@{/deleteVeiculo/{id}(id=${veiculo.id})}" class="btn btn-danger" onClick="onClick()">Deletar</a>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+	</div>
+    
+  </body>
+</html>
+
+<script>
+	function onClick(){
+		alert("Este registro será deletado!")
+	}
+</script>

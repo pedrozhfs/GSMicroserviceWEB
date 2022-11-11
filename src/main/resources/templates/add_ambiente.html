@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Global Solution Microservice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </head>
+  <body>
+	<div class="container"><br>
+	
+	<h2 class="mb-5">Cadastrar Ambiente</h2>
+	
+	<form class="col-5" th:action="@{/saveAmbiente}" th:object="${ambiente}" method="post">
+	
+
+		<div class="mb-3">
+  			<label for="exampleFormControlInput1" class="form-label">Bairro</label>
+  			<input type="text" th:field="*{bairro}" class="form-control" placeholder="Ex. Jardim das Flores" required>
+		</div>
+		<div class="mb-3">
+  			<label for="exampleFormControlInput1" class="form-label">Cidade</label>
+  			<input type="text" th:field="*{cidade}" class="form-control" placeholder="Ex. Osasco" required>
+		</div>
+		<div class="mb-3">
+  			<label for="exampleFormControlInput1" class="form-label">Estado</label>
+  			<input type="text" th:field="*{estado}" class="form-control" placeholder="Ex. São Paulo" required>
+		</div>
+		<div class="mb-3">
+  			<label for="exampleFormControlInput1" class="form-label">Temperatura</label>
+  			<input type="number" th:field="*{temperatura}" class="form-control" required>
+		</div>
+		<div class="mb-3">
+  			<label for="exampleFormControlInput1" class="form-label">Qualidade Ar</label>
+  			<input type="text" th:field="*{qualidade}" class="form-control" placeholder="Ex. Bom" required>
+		</div>
+	
+		<button type="submit" class="btn btn-success mb-3">Salvar</button>
+	</form>
+	
+	<a class="btn btn-primary" th:href="@{/ambiente}">Voltar para lista de ambientes</a>
+	
+
+	</div>
+    
+  </body>
+</html>
